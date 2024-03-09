@@ -1,2 +1,2 @@
-# steel-planner
+# Steel Planner
 Web service for tracking orders and production in steel structure manufacturing
