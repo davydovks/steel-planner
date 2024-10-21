@@ -2,9 +2,9 @@ start:
 	php artisan serve --host 0.0.0.0
 
 start-frontend:
-	npm run dev
+	php artisan inertia:start-ssr
 
-setup: env-prepare install fix-fakerphp key prepare-db
+setup: env-prepare install key prepare-db
 	npm run build
 
 env-prepare:
@@ -18,7 +18,7 @@ key:
 	php artisan key:gen --ansi
 
 prepare-db:
-	php artisan migrate:refresh --force --seed
+	php artisan migrate:fresh --force --seed
 
 test:
 	php artisan test
