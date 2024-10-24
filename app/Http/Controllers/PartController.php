@@ -75,7 +75,16 @@ class PartController extends Controller
      */
     public function edit(Part $part)
     {
-        //
+        return inertia('Parts/Edit', [
+            'part' => [
+                'id' => $part->id,
+                'position' => $part->position,
+                'profile' => $part->profile,
+                'weight' => $part->weight,
+                'deleted_at' => $part->deleted_at,
+                'order' => $part->order->only(['id', 'name']),
+            ],
+        ]);
     }
 
     /**
