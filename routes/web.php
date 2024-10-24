@@ -1,12 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\StructureController;
@@ -73,67 +70,8 @@ Route::put('users/{user}/restore', [UsersController::class, 'restore'])
     ->name('users.restore')
     ->middleware('auth');
 
-// Organizations
-
-Route::get('organizations', [OrganizationsController::class, 'index'])
-    ->name('organizations')
-    ->middleware('auth');
-
-Route::get('organizations/create', [OrganizationsController::class, 'create'])
-    ->name('organizations.create')
-    ->middleware('auth');
-
-Route::post('organizations', [OrganizationsController::class, 'store'])
-    ->name('organizations.store')
-    ->middleware('auth');
-
-Route::get('organizations/{organization}/edit', [OrganizationsController::class, 'edit'])
-    ->name('organizations.edit')
-    ->middleware('auth');
-
-Route::put('organizations/{organization}', [OrganizationsController::class, 'update'])
-    ->name('organizations.update')
-    ->middleware('auth');
-
-Route::delete('organizations/{organization}', [OrganizationsController::class, 'destroy'])
-    ->name('organizations.destroy')
-    ->middleware('auth');
-
-Route::put('organizations/{organization}/restore', [OrganizationsController::class, 'restore'])
-    ->name('organizations.restore')
-    ->middleware('auth');
-
-// Contacts
-
-Route::get('contacts', [ContactsController::class, 'index'])
-    ->name('contacts')
-    ->middleware('auth');
-
-Route::get('contacts/create', [ContactsController::class, 'create'])
-    ->name('contacts.create')
-    ->middleware('auth');
-
-Route::post('contacts', [ContactsController::class, 'store'])
-    ->name('contacts.store')
-    ->middleware('auth');
-
-Route::get('contacts/{contact}/edit', [ContactsController::class, 'edit'])
-    ->name('contacts.edit')
-    ->middleware('auth');
-
-Route::put('contacts/{contact}', [ContactsController::class, 'update'])
-    ->name('contacts.update')
-    ->middleware('auth');
-
-Route::delete('contacts/{contact}', [ContactsController::class, 'destroy'])
-    ->name('contacts.destroy')
-    ->middleware('auth');
-
-Route::put('contacts/{contact}/restore', [ContactsController::class, 'restore'])
-    ->name('contacts.restore')
-    ->middleware('auth');
-
 // Customers
+
 Route::resource('customers', CustomerController::class)
     ->withTrashed()
     ->middleware('auth');
@@ -144,11 +82,13 @@ Route::put('customers/{customer}/restore', [CustomerController::class, 'restore'
     ->middleware('auth');
 
 // Orders
+
 Route::resource('orders', OrderController::class)
     ->withTrashed()
     ->middleware('auth');
 
-Route::get('orders/create/{customer_id?}', [OrderController::class, 'create'])->name('orders.create')
+Route::get('orders/create/{customer_id?}', [OrderController::class, 'create'])
+    ->name('orders.create')
     ->middleware('auth');
 
 Route::put('orders/{order}/restore', [OrderController::class, 'restore'])
@@ -157,11 +97,13 @@ Route::put('orders/{order}/restore', [OrderController::class, 'restore'])
     ->middleware('auth');
 
 // Structures
+
 Route::resource('structures', StructureController::class)
     ->withTrashed()
     ->middleware('auth');
 
-Route::get('structures/create/{order_id?}', [StructureController::class, 'create'])->name('structures.create')
+Route::get('structures/create/{order_id?}', [StructureController::class, 'create'])
+    ->name('structures.create')
     ->middleware('auth');
 
 Route::put('structures/{structure}/restore', [StructureController::class, 'restore'])
@@ -170,11 +112,13 @@ Route::put('structures/{structure}/restore', [StructureController::class, 'resto
     ->middleware('auth');
 
 // Parts
+
 Route::resource('parts', PartController::class)
     ->withTrashed()
     ->middleware('auth');
 
-Route::get('parts/create/{order_id?}', [PartController::class, 'create'])->name('parts.create')
+Route::get('parts/create/{order_id?}', [PartController::class, 'create'])
+    ->name('parts.create')
     ->middleware('auth');
 
 Route::put('parts/{part}/restore', [PartController::class, 'restore'])
@@ -187,9 +131,3 @@ Route::put('parts/{part}/restore', [PartController::class, 'restore'])
 Route::get('production', [ProductionController::class, 'index'])
     ->name('production')
     ->middleware('auth');
-
-// Images
-
-Route::get('/img/{path}', [ImagesController::class, 'show'])
-    ->where('path', '.*')
-    ->name('image');
