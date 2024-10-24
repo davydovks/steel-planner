@@ -90,7 +90,6 @@ class StructureController extends Controller
                 'deleted_at' => $structure->deleted_at,
                 'order' => $structure->order->only(['id', 'name']),
             ],
-            // 'orders' => Order::all(['id', 'name']),
         ]);
     }
 
