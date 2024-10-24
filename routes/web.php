@@ -177,7 +177,7 @@ Route::resource('parts', PartController::class)
 Route::get('parts/create/{order_id?}', [PartController::class, 'create'])->name('parts.create')
     ->middleware('auth');
 
-Route::put('parts/{Part}/restore', [PartController::class, 'restore'])
+Route::put('parts/{part}/restore', [PartController::class, 'restore'])
     ->withTrashed()
     ->name('parts.restore')
     ->middleware('auth');
