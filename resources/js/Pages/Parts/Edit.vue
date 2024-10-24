@@ -58,6 +58,7 @@ export default {
         position: String(this.part.position),
         profile: this.part.profile,
         weight: (this.part.weight / 1000).toFixed(1),
+        order_id: this.part.order?.id,
       }),
       options: {
         mask: "#*.?#*",

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePartRequest;
-use App\Http\Requests\UpdatePartRequest;
+use App\Http\Requests\UpsertPartRequest;
 use App\Models\Order;
 use App\Models\Part;
 use Illuminate\Support\Facades\Request;
@@ -40,7 +39,7 @@ class PartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePartRequest $request)
+    public function store(UpsertPartRequest $request)
     {
         Part::create($request->validated());
 
@@ -90,7 +89,7 @@ class PartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePartRequest $request, Part $part)
+    public function update(UpsertPartRequest $request, Part $part)
     {
         //
     }
