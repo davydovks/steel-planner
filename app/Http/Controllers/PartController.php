@@ -91,7 +91,10 @@ class PartController extends Controller
      */
     public function update(UpsertPartRequest $request, Part $part)
     {
-        //
+        $part->update($request->validated());
+
+        return to_route('parts.show', [$part])->with('success', 'Данные обновлены.');
+
     }
 
     /**
