@@ -106,4 +106,14 @@ class PartController extends Controller
 
         return to_route('parts.index')->with('success', 'Деталь удалена.');
     }
+
+    /**
+     * Restore the specified resource from soft deleted.
+     */
+    public function restore(Part $part)
+    {
+        $part->restore();
+
+        return to_route('parts.show', [$part])->with('success', 'Деталь восстановлена.');
+    }
 }
