@@ -59,6 +59,7 @@ class StorePartRequest extends FormRequest
     {
         return [
             'position.max' => __('validation.max.numeric_f'),
+            'position.unique' => __('validation.unique_f'),
         ];
     }
 }

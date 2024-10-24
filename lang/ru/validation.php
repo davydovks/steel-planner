@@ -27,6 +27,7 @@ return [
     'required' => 'Это обязательное поле',
     'string' => 'Поле :attribute должно содержать строку',
     'unique' => 'Такой :attribute уже используется',
+    'unique_f' => 'Такая :attribute уже используется',
     'unique_n' => 'Такое :attribute уже используется',
     'unique_name' => ':Attribute с таким именем уже существует',
 ];
