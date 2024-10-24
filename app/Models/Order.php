@@ -19,7 +19,7 @@ class Order extends Model
     protected $fillable = [
         'name',
         'customer_id',
-        'due_date'
+        'due_date',
     ];
 
     /**

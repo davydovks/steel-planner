@@ -11,7 +11,7 @@ class CustomerType extends Model
 
     /**
      * The attibutes that are mass assignable
-     * 
+     *
      * @var array<string>
      */
     protected $fillable = [

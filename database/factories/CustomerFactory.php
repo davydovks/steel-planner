@@ -23,7 +23,7 @@ class CustomerFactory extends Factory
             'address' => fake()->address(),
             'TIN' => fake()->unique()->inn(),
             'created_at' => now(),
-            'updated_at'=> now(),
+            'updated_at' => now(),
         ];
     }
 }

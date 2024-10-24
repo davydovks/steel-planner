@@ -74,7 +74,7 @@ class OrderController extends Controller
                         'structures.id',
                         'structures.name',
                         'structures.quantity',
-                        'structures.deleted_at'
+                        'structures.deleted_at',
                     ]),
                 'parts' => $order->parts()
                     ->orderBy('position')

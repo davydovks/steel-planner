@@ -13,7 +13,7 @@ class Customer extends Model
 
     /**
      * The attibutes that are mass assignable
-     * 
+     *
      * @var array<string>
      */
     protected $fillable = [
@@ -43,7 +43,7 @@ class Customer extends Model
         return $this->orders()
             ->get()
             ->reduce(
-                fn($totalWeight, $order) => $totalWeight + $order->weight
+                fn ($totalWeight, $order) => $totalWeight + $order->weight
             );
     }
 

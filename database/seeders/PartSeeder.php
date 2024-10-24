@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Order;
 use App\Models\Part;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PartSeeder extends Seeder
@@ -24,7 +23,7 @@ class PartSeeder extends Seeder
                     ->inRandomOrder()
                     ->limit(rand(3, 8))
                     ->get();
-    
+
                 $structure->parts()->attach($parts, ['quantity' => rand(1, 20)]);
             });
         });

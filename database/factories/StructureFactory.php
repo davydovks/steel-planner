@@ -25,6 +25,7 @@ class StructureFactory extends Factory
             'СВ-1', 'СВ-2', 'СВ-3', 'СВ-4',
             'СГ-1', 'СГ-2', 'СГ-3', 'СГ-4', 'СГ-5',
         ];
+
         return [
             'order_id' => Order::inRandomOrder()->first(),
             'name' => $names[fake()->unique()->numberBetween(0, count($names) - 1)],

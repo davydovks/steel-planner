@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Order;
 use App\Models\Structure;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class StructureSeeder extends Seeder

@@ -28,7 +28,7 @@ class StructureController extends Controller
                     'structures.name',
                     'structures.quantity',
                     'structures.order_id',
-                    'structures.deleted_at'
+                    'structures.deleted_at',
                 ]),
         ]);
     }

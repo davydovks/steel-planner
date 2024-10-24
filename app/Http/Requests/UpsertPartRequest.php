@@ -25,7 +25,7 @@ class UpsertPartRequest extends FormRequest
         $input = $this->all();
         $input['position'] = Str::replace("\xc2\xa0", '', $input['position']);
         $input['weight'] = Str::replace("\xc2\xa0", '', $input['weight']);
-        $input['weight'] = Str::replace(",", '.', $input['weight']);
+        $input['weight'] = Str::replace(',', '.', $input['weight']);
         if (strlen($input['weight'])) {
             $input['weight'] = round((float) $input['weight'] * 1000);
         }
@@ -41,12 +41,12 @@ class UpsertPartRequest extends FormRequest
     {
         return [
             'position' => ['required', 'numeric', 'max:2000000000', Rule::unique('parts')
-                ->where(fn(Builder $query) => $query->where('order_id', $this->order_id))
-                ->ignore($this->part)
+                ->where(fn (Builder $query) => $query->where('order_id', $this->order_id))
+                ->ignore($this->part),
             ],
             'order_id' => 'required|exists:orders,id',
             'weight' => 'required|integer|numeric|gt:0',
-            'profile' => 'required|string'
+            'profile' => 'required|string',
         ];
     }
 

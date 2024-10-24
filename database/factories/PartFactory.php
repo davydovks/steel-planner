@@ -18,6 +18,7 @@ class PartFactory extends Factory
     public function definition(): array
     {
         $profiles = ['PK250X6.0_30245_2003', 'PL8', 'PL10', 'PL20', 'L125X10_8509_93'];
+
         return [
             'order_id' => Order::inRandomOrder()->first(),
             'position' => fake()->numberBetween(1, 200),

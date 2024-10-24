@@ -26,7 +26,7 @@ class Structure extends Model
     protected $fillable = [
         'name',
         'order_id',
-        'quantity'
+        'quantity',
     ];
 
     /**

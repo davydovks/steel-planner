@@ -25,8 +25,8 @@ class UpdateStructureRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:150', Rule::unique('structures')
-                ->where(fn(Builder $query) => $query->where('order_id', $this->order_id))
-                ->ignore($this->structure)
+                ->where(fn (Builder $query) => $query->where('order_id', $this->order_id))
+                ->ignore($this->structure),
             ],
             'quantity' => 'required|integer|numeric',
         ];
