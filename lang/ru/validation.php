@@ -7,9 +7,13 @@ return [
         'password' => 'пароль',
         'TIN' => 'ИНН',
         'position' => 'позиция',
+        'weight' => 'вес',
     ],
     'confirmed' => ':Attribute и подтверждение не совпадают',
     'date' => 'Укажите корректную дату',
+    'gt' => [
+        'numeric' => ':Attribute должен быть больше :value',
+    ],
     'max' => [
         'numeric_f' => ':Attribute должна иметь значение не более :max.',
         'string' => ':Attribute должен иметь длину не более :max символов',

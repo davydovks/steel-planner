@@ -26,7 +26,9 @@ class StorePartRequest extends FormRequest
         $input['position'] = Str::replace("\xc2\xa0", '', $input['position']);
         $input['weight'] = Str::replace("\xc2\xa0", '', $input['weight']);
         $input['weight'] = Str::replace(",", '.', $input['weight']);
-        $input['weight'] = round((float) $input['weight'] * 1000);
+        if (strlen($input['weight'])) {
+            $input['weight'] = round((float) $input['weight'] * 1000);
+        }
         $this->replace($input);
     }
 
@@ -43,7 +45,7 @@ class StorePartRequest extends FormRequest
                 ->ignore($this->part)
             ],
             'order_id' => 'required|exists:orders,id',
-            'weight' => 'required|integer|numeric',
+            'weight' => 'required|integer|numeric|gt:0',
             'profile' => 'required|string'
         ];
     }
