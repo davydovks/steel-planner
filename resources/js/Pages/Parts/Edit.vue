@@ -11,9 +11,9 @@
       <form @submit.prevent="update">
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-div v-model="form.order_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Заказ" :link="form.order_link" />
-          <text-input v-model="form.position" v-maska="options" :error="form.errors.position" class="pb-8 pr-6 w-full lg:w-1/2" label="Позиция" />
+          <text-input v-model="form.position" :error="form.errors.position" class="pb-8 pr-6 w-full lg:w-1/2" label="Позиция" />
           <text-input v-model="form.profile" :error="form.errors.profile" class="pb-8 pr-6 w-full lg:w-1/2" label="Профиль" />
-          <text-input v-model="form.weight" data-maska-number data-maska-number-locale="ru" :error="form.errors.position" class="pb-8 pr-6 w-full lg:w-1/2" label="Вес детали, кг" />
+          <text-input v-model="form.weight" v-maska="options" :error="form.errors.weight" class="pb-8 pr-6 w-full lg:w-1/2" label="Вес детали, кг" />
         </div>
         <div class="flex items-center px-8 py-4 bg-gray-50 border-t border-gray-100">
           <Link class="btn-default" :href="`/parts/${part.id}`">Отмена</Link>
@@ -60,9 +60,10 @@ export default {
         weight: (this.part.weight / 1000).toFixed(1),
       }),
       options: {
-        mask: "#*",
+        mask: "#*.?#*",
         eager: true,
         number: {
+          fraction: 3,
           locale: 'ru'
         }
       }
