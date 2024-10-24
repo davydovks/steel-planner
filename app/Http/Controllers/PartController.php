@@ -102,6 +102,8 @@ class PartController extends Controller
      */
     public function destroy(Part $part)
     {
-        //
+        $part->delete();
+
+        return to_route('parts.index')->with('success', 'Деталь удалена.');
     }
 }
