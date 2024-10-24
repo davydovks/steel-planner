@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpsertPartRequest;
 use App\Models\Order;
 use App\Models\Part;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Request;
 
 class PartController extends Controller
@@ -39,7 +40,7 @@ class PartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UpsertPartRequest $request)
+    public function store(UpsertPartRequest $request): RedirectResponse
     {
         Part::create($request->validated());
 
@@ -89,7 +90,7 @@ class PartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpsertPartRequest $request, Part $part)
+    public function update(UpsertPartRequest $request, Part $part): RedirectResponse
     {
         $part->update($request->validated());
 
@@ -100,7 +101,7 @@ class PartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Part $part)
+    public function destroy(Part $part): RedirectResponse
     {
         $part->delete();
 
@@ -110,7 +111,7 @@ class PartController extends Controller
     /**
      * Restore the specified resource from soft deleted.
      */
-    public function restore(Part $part)
+    public function restore(Part $part): RedirectResponse
     {
         $part->restore();
 
