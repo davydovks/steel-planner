@@ -13,9 +13,9 @@
             <option :value="null" />
             <option v-for="order in orderList" :key="order.id" :value="order.id">{{ order.name }}</option>
           </select-input>
-          <text-input v-model="form.position" :error="form.errors.position" class="pb-8 pr-6 w-full lg:w-1/2" label="Позиция" />
+          <text-input v-model="form.position" v-maska="options_int" :error="form.errors.position" class="pb-8 pr-6 w-full lg:w-1/2" label="Позиция" />
           <text-input v-model="form.profile" :error="form.errors.profile" class="pb-8 pr-6 w-full lg:w-1/2" label="Профиль" />
-          <text-input v-model="form.weight" v-maska="options" :error="form.errors.weight" class="pb-8 pr-6 w-full lg:w-1/2" label="Вес, кг" />
+          <text-input v-model="form.weight" v-maska="options_float" :error="form.errors.weight" class="pb-8 pr-6 w-full lg:w-1/2" label="Вес детали, кг" />
         </div>
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
           <Link class="btn-default mr-auto" href="/parts/">Отмена</Link>
@@ -60,11 +60,18 @@ export default {
         order_id: this.order?.id,
       }),
       orderList: this.orders,
-      options: {
+      options_float: {
         mask: "#*.?#*",
         eager: true,
         number: {
           fraction: 3,
+          locale: 'ru'
+        }
+      },
+      options_int: {
+        mask: "#*",
+        eager: true,
+        number: {
           locale: 'ru'
         }
       }

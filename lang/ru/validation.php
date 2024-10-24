@@ -6,13 +6,12 @@ return [
         'email' => 'email',
         'password' => 'пароль',
         'TIN' => 'ИНН',
-        'task' => 'задача',
-        'label' => 'метка',
-        'description' => 'описание',
+        'position' => 'позиция',
     ],
     'confirmed' => ':Attribute и подтверждение не совпадают',
     'date' => 'Укажите корректную дату',
     'max' => [
+        'numeric_f' => ':Attribute должна иметь значение не более :max.',
         'string' => ':Attribute должен иметь длину не более :max символов',
         'string_f' => ':Attribute должна иметь длину не более :max символов',
         'string_n' => ':Attribute должно иметь длину не более :max символов',
@@ -20,6 +19,7 @@ return [
     'min' => [
         'string' => ':Attribute должен иметь длину не менее :min символов',
     ],
+    'numeric' => 'Нужно ввести число',
     'required' => 'Это обязательное поле',
     'string' => 'Поле :attribute должно содержать строку',
     'unique' => 'Такой :attribute уже используется',
